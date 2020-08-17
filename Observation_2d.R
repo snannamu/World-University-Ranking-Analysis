@@ -1,0 +1,3 @@
+expVscore_data %>% ggplot(aes(total_exp,best_score)) + geom_point(aes(color = institute_type)) + geom_smooth(method = lm, aes(group = institute_type, color = institute_type), alpha = 0.1) + labs(title = 'Educational Scores based on expenditure on Public Institutes', y = 'High Educational Score', x = '% GDP expenditure on public education') +theme(axis.text=element_text(size=10),axis.title=element_text(size=10,face="bold" )) + theme_bw() + theme(legend.position = "bottom") + scale_color_discrete(" Institute Type:")
+
+summary(lm(best_score ~ total_exp + institute_type , data = expVscore_data))
